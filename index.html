@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <title>Jamzy Realm Sensi</title>
+  <style>
+    :root { --red:#ff3030; --bg:#0b0b0f; --panel:#17171e; --muted:#aaa; --white:#f7f7fb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial,Helvetica,sans-serif; background:radial-gradient(circle at top,#301010 0,#0b0b0f 42%); color:var(--white); }
+    header { padding:34px 18px 26px; text-align:center; border-bottom:1px solid #382020; }
+    .brand { color:var(--red); font-weight:900; font-size:clamp(28px,7vw,46px); letter-spacing:1px; text-shadow:0 0 18px #ff303055; }
+    header p { color:#ddd; margin:10px auto 0; max-width:620px; line-height:1.5; }
+    main { width:min(920px,92%); margin:24px auto 50px; }
+    .search-box { background:var(--panel); border:1px solid #333; border-radius:16px; padding:18px; box-shadow:0 12px 35px #0006; }
+    label { display:block; font-weight:700; margin-bottom:9px; }
+    input, select { width:100%; padding:14px; border-radius:10px; border:1px solid #444; background:#09090d; color:white; font-size:16px; outline:none; }
+    input:focus, select:focus { border-color:var(--red); }
+    .hint { color:var(--muted); font-size:13px; margin:9px 0 0; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .chip { border:1px solid #5a2929; color:#ffdede; background:#241313; padding:8px 11px; border-radius:999px; cursor:pointer; }
+    .card { background:var(--panel); border:1px solid #303039; border-radius:16px; padding:19px; margin-top:18px; }
+    .card h2 { margin:0 0 5px; }
+    .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; }
+    .stat { background:#0d0d12; border:1px solid #303039; border-radius:11px; padding:13px; }
+    .stat span { display:block; color:var(--muted); font-size:13px; margin-bottom:7px; }
+    .stat strong { font-size:22px; color:#fff; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    button { cursor:pointer; border:0; border-radius:10px; padding:12px 15px; font-weight:700; color:white; background:var(--red); }
+    button.secondary { background:#303039; border:1px solid #4b4b55; }
+    .empty { display:none; text-align:center; color:#ddd; line-height:1.6; }
+    .note { color:#bbb; font-size:13px; line-height:1.55; }
+    footer { text-align:center; padding:24px 14px; color:#888; border-top:1px solid #292930; font-size:13px; }
+    @media(max-width:520px) { .grid { grid-template-columns:1fr 1fr; } .stat strong { font-size:20px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">JAMZY REALM SENSI</div>
+    <p>Find a starting Free Fire sensitivity setup for your phone. Search your device, view the settings and copy them.</p>
+  </header>
+
+  <main>
+    <section class="search-box">
+      <label for="phoneSearch">Search your phone model</label>
+      <input id="phoneSearch" type="search" placeholder="Example: Infinix Smart 8 Plus" autocomplete="off">
+      <div class="chips">
+        <button class="chip" type="button" data-phone="Infinix Smart 8 Plus">Infinix Smart 8 Plus</button>
+        <button class="chip" type="button" data-phone="Tecno Pop 10C">Tecno Pop 10C</button>
+        <button class="chip" type="button" data-phone="Samsung Galaxy A15">Samsung A15</button>
+        <button class="chip" type="button" data-phone="Redmi 13C">Redmi 13C</button>
+      </div>
+      <p class="hint">Type a model name or tap one of the examples.</p>
+    </section>
+
+    <section id="result" class="card" aria-live="polite">
+      <h2 id="deviceName">Infinix Smart 8 Plus</h2>
+      <p class="sub">Starter sensitivity recommendation · Test and adjust in Training Ground</p>
+      <div class="grid" id="stats"></div>
+      <div class="actions">
+        <button id="copyBtn" type="button">Copy sensitivity</button>
+        <button id="nextBtn" class="secondary" type="button">Show another phone</button>
+      </div>
+    </section>
+
+    <section id="empty" class="card empty">
+      <h2>Phone not listed yet</h2>
+      <p>We don't have a saved recommendation for that exact model yet. Try another spelling or add this phone to your device list in the website code.</p>
+    </section>
+
+    <section class="card" aria-label="Advertisement">
+      <h2>Advertisement</h2>
+      <div style="border:1px dashed #666;border-radius:10px;padding:22px;text-align:center;color:#aaa;background:#101016">
+        Ad space — adverts will appear here after an approved ad network is connected.
+      </div>
+      <p class="note">This is only a placeholder. No adverts are running and no ad income is being earned yet.</p>
+    </section>
+
+    <section class="card">
+      <h2>⭐ Realm Premium</h2>
+      <p class="sub">A future premium area for extra device guides and custom HUD recommendations.</p>
+      <div class="grid">
+        <div class="stat"><span>Premium device guides</span><strong>Coming soon</strong></div>
+        <div class="stat"><span>Custom HUD guides</span><strong>Coming soon</strong></div>
+      </div>
+      <div class="actions">
+        <button type="button" class="secondary" onclick="alert('Premium checkout is not connected yet. Ask the site owner for details when it is ready.')">Premium access — coming soon</button>
+      </div>
+      <p class="note">Payments are not enabled on this demo. Only add a trusted payment provider after an adult/guardian has checked its age, account and local payment requirements.</p>
+    </section>
+
+    <section class="card">
+      <h2>HUD suggestions</h2>
+      <p class="sub">Choose a layout that feels comfortable and practise it consistently.</p>
+      <div class="grid">
+        <div class="stat"><span>2-finger HUD</span><strong>Beginner</strong></div>
+        <div class="stat"><span>3-finger HUD</span><strong>Flexible</strong></div>
+        <div class="stat"><span>4-finger HUD</span><strong>Advanced</strong></div>
+        <div class="stat"><span>Fire button size</span><strong>Customise</strong></div>
+      </div>
+      <p class="note">HUD placement and button size are personal preferences. Change one setting at a time and keep the layout comfortable for your hands.</p>
+    </section>
+
+    <section class="card">
+      <h2>About these settings</h2>
+      <p class="note">These are sample starting values for this demo website, not official Garena settings or guaranteed headshot settings. Sensitivity depends on the game version, screen response and personal control style. Test in-game and update the values based on real feedback.</p>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Jamzy Realm Sensi · Fan-made settings guide, not affiliated with Garena.</footer>
+
+  <script>
+    // Edit or add devices here. Values are sample starting points, not verified device-specific settings.
+    const devices = [
+      { name:"Infinix Smart 8 Plus", general:190, redDot:185, scope2x:180, scope4x:170, sniper:90, freeLook:150 },
+      { name:"Tecno Pop 10C", general:190, redDot:185, scope2x:180, scope4x:170, sniper:90, freeLook:150 },
+      { name:"Samsung Galaxy A15", general:185, redDot:180, scope2x:175, scope4x:165, sniper:85, freeLook:145 },
+      { name:"Redmi 13C", general:190, redDot:185, scope2x:175, scope4x:165, sniper:90, freeLook:150 },
+      { name:"Infinix Smart 7 HD", general:185, redDot:180, scope2x:175, scope4x:165, sniper:85, freeLook:145 },
+      { name:"Tecno Spark 10", general:190, redDot:185, scope2x:180, scope4x:170, sniper:90, freeLook:150 },
+      { name:"iPhone 11", general:175, redDot:170, scope2x:165, scope4x:155, sniper:80, freeLook:140 }
+    ];
+
+    const labels = [
+      ["General","general"], ["Red Dot","redDot"], ["2x Scope","scope2x"],
+      ["4x Scope","scope4x"], ["Sniper Scope","sniper"], ["Free Look","freeLook"]
+    ];
+    const search = document.getElementById("phoneSearch");
+    const result = document.getElementById("result");
+    const empty = document.getElementById("empty");
+    let current = devices[0];
+
+    function showDevice(device) {
+      current = device;
+      document.getElementById("deviceName").textContent = device.name;
+      document.getElementById("stats").innerHTML = labels.map(([label,key]) =>
+        `<div class="stat"><span>${label}</span><strong>${device[key]}</strong></div>`
+      ).join("");
+      result.style.display = "block";
+      empty.style.display = "none";
+    }
+
+    function searchDevice(value) {
+      const q = value.trim().toLowerCase();
+      if (!q) { showDevice(devices[0]); return; }
+      const match = devices.find(d => d.name.toLowerCase().includes(q));
+      if (match) showDevice(match);
+      else { result.style.display = "none"; empty.style.display = "block"; }
+    }
+
+    search.addEventListener("input", () => searchDevice(search.value));
+    document.querySelectorAll("[data-phone]").forEach(button => {
+      button.addEventListener("click", () => {
+        search.value = button.dataset.phone;
+        searchDevice(search.value);
+      });
+    });
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+      const text = `${current.name} - Sample Free Fire Sensitivity\n` +
+        labels.map(([label,key]) => `${label}: ${current[key]}`).join("\n");
+      try {
+        await navigator.clipboard.writeText(text);
+        document.getElementById("copyBtn").textContent = "Copied!";
+        setTimeout(() => document.getElementById("copyBtn").textContent = "Copy sensitivity", 1600);
+      } catch {
+        window.prompt("Copy your sensitivity settings:", text);
+      }
+    });
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      const index = devices.indexOf(current);
+      const next = devices[(index + 1) % devices.length];
+      search.value = next.name;
+      showDevice(next);
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+    showDevice(devices[0]);
+  </script>
+</body>
+</html>
